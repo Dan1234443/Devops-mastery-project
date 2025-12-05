@@ -1,1 +1,0 @@
-# Herete DevOps Mastery Project
