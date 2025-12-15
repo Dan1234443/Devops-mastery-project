@@ -2,13 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -16,9 +15,9 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
+      - name: Terraform Init (no backend)
         working-directory: infra/terraform
-        run: terraform init
+        run: terraform init -backend=false
 
       - name: Terraform Format Check
         working-directory: infra/terraform
